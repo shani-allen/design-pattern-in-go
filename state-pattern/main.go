@@ -61,6 +61,7 @@ func (sc *stateContext) getState() {
 func main() {
 	tvContext := getContext() //default is off
 	tvContext.getState()      //get the state
+	//changing the the state
 	tvContext.setState(&on{})
 	tvContext.getState()
 }
