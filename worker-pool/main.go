@@ -71,6 +71,7 @@ func main() {
 	totalTask := 100
 	resultC := make(chan result, totalTask)
 
+	//writing the task to the channel
 	for i := 0; i < totalTask; i++ {
 		id := i + 1
 		wp.AddTask(func() {
@@ -80,6 +81,7 @@ func main() {
 		})
 	}
 
+	//reading from the channel to get the result
 	for i := 0; i < totalTask; i++ {
 		res := <-resultC
 		log.Printf("[main] Task %d has been finished with result %d:", res.id, res.value)
